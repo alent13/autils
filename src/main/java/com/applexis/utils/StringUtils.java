@@ -1,10 +1,4 @@
-package com.applexis;
-
-import java.nio.charset.Charset;
-
-/**
- * Created by applexis on 4/28/2017.
- */
+package com.applexis.utils;
 
 public class StringUtils {
 
@@ -12,11 +6,11 @@ public class StringUtils {
     private static final int LOW_BYTE_MASK = 0x0f;
 
     private static final char[] HEX_SYMBOLS = {
-            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f',
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
     };
 
     public static String bytesToHex(byte[] bytes) {
-        final StringBuffer builder = new StringBuffer(2 * bytes.length);
+        final StringBuilder builder = new StringBuilder(2 * bytes.length);
         for (byte item : bytes) {
             builder.append(HEX_SYMBOLS[(HI_BYTE_MASK & item) >>> 4]);
             builder.append(HEX_SYMBOLS[(LOW_BYTE_MASK & item)]);

@@ -1,7 +1,8 @@
-import com.applexis.crypto.AESCrypto;
+import com.applexis.utils.crypto.AESCrypto;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.security.InvalidParameterException;
 import java.security.Key;
 
 public class AESCryptoTest {
@@ -34,6 +35,11 @@ public class AESCryptoTest {
         String testString = "qwerty_asd";
 
         Assert.assertEquals(testString, aes.decrypt(aes.encrypt(testString)));
+    }
+
+    @Test(expected = InvalidParameterException.class)
+    public void wrongKeyLengthExceptionTest() {
+        AESCrypto aes = new AESCrypto(193);
     }
 
 }

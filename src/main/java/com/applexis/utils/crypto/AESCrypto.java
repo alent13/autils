@@ -1,6 +1,6 @@
-package com.applexis.crypto;
+package com.applexis.utils.crypto;
 
-import com.applexis.StringUtils;
+import com.applexis.utils.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;

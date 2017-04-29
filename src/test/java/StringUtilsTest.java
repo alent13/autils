@@ -1,4 +1,4 @@
-import com.applexis.StringUtils;
+import com.applexis.utils.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -6,7 +6,7 @@ public class StringUtilsTest {
 
     @Test
     public void toHexTest() {
-        Assert.assertEquals("011d020f030a04ff",
+        Assert.assertEquals("011D020F030A04FF",
                 StringUtils.bytesToHex(new byte[] {0x1, 0x1d, 0x2, 0xf, 0x3, 0xa, 0x4, (byte) 0xff}));
     }
 
