@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd752241-869a-4463-96c9-3b0bf8c2d3fa" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/DSASing.java" afterPath="$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/DSASign.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/DSASingTest.java" afterPath="$PROJECT_DIR$/src/test/java/DSASignTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/applexis/utils/StringUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/applexis/utils/StringUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/StringUtilsTest.java" afterPath="$PROJECT_DIR$/src/test/java/StringUtilsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/RSACrypto.java" afterPath="$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/RSACrypto.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -90,12 +87,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RSACrypto.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RSACrypto.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/RSACrypto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="609">
+              <caret line="69" column="69" lean-forward="false" selection-start-line="69" selection-start-column="69" selection-end-line="69" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,7 +132,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringUtilsTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StringUtilsTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/StringUtilsTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
@@ -542,7 +541,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/DSASing.java" />
         <option value="$PROJECT_DIR$/src/test/java/AESCryptoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/SHA2Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/RSACrypto.java" />
         <option value="$PROJECT_DIR$/src/test/java/RSACryptoTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/SHACrypto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/SHA2.java" />
@@ -550,6 +548,7 @@
         <option value="$PROJECT_DIR$/src/test/java/HashTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/applexis/utils/StringUtils.java" />
         <option value="$PROJECT_DIR$/src/test/java/StringUtilsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/RSACrypto.java" />
       </list>
     </option>
   </component>
@@ -1204,7 +1203,7 @@
       <workItem from="1493385991317" duration="922000" />
       <workItem from="1493460244292" duration="17129000" />
       <workItem from="1493726391385" duration="345000" />
-      <workItem from="1493726744187" duration="2335000" />
+      <workItem from="1493726744187" duration="2677000" />
     </task>
     <task id="LOCAL-00001" summary="AES шифрование&#10;массив байт в hex и обратно&#10;тесты">
       <created>1493467616152</created>
@@ -1227,7 +1226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493479597260</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="surroundQuotes">
+      <created>1493729492288</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1493729492288</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1263,7 +1269,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20731000" />
+    <option name="totallyTimeSpent" value="21073000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1277,7 +1283,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1307,7 +1313,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="AES шифрование&#10;массив байт в hex и обратно&#10;тесты" />
     <MESSAGE value="DSA, RSA, Hash(SHA512, HSA1, MD5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="DSA, RSA, Hash(SHA512, HSA1, MD5)" />
+    <MESSAGE value="surroundQuotes" />
+    <option name="LAST_COMMIT_MESSAGE" value="surroundQuotes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1328,7 +1335,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1389,7 +1398,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1480,14 +1491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/RSACrypto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/DSASignTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1539,6 +1542,16 @@
         <state relative-caret-position="85">
           <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/applexis/utils/crypto/RSACrypto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="69" column="69" lean-forward="false" selection-start-line="69" selection-start-column="69" selection-end-line="69" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

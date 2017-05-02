@@ -55,6 +55,30 @@ public class RSACrypto {
         return decrypted;
     }
 
+    public static byte[] encrypt(PublicKey key, byte[] plaintext) {
+        byte[] encrypted = null;
+        try {
+            Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            encrypted = cipher.doFinal(plaintext);
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException e) {
+            e.printStackTrace();
+        }
+        return encrypted;
+    }
+
+    public static byte[] decrypt(PrivateKey key, byte[] ciphertext) {
+        byte[] decrypted = null;
+        try {
+            Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
+            cipher.init(Cipher.DECRYPT_MODE, key);
+            decrypted = cipher.doFinal(ciphertext);
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException e) {
+            e.printStackTrace();
+        }
+        return decrypted;
+    }
+
     public static PublicKey getPublicKey(String key) {
         PublicKey publicKey = null;
         try {
