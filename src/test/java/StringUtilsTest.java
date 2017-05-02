@@ -11,10 +11,15 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void HexTest() {
+    public void hexTest() {
         byte[] testArray = new byte[] {-100, 99, 21, 94, 18, -122, -1, 64};
         Assert.assertArrayEquals(testArray,
                 StringUtils.fromHexString(StringUtils.bytesToHex(testArray)));
+    }
+
+    @Test
+    public void surroundTest() {
+        Assert.assertEquals("\"123\"", StringUtils.surroundQuotes("123"));
     }
 
 }

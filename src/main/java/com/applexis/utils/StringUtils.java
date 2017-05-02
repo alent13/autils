@@ -28,4 +28,8 @@ public class StringUtils {
         return data;
     }
 
+    public static String surroundQuotes(String str) {
+        return '"' + str + '"';
+    }
+
 }

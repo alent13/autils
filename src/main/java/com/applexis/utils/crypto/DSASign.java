@@ -5,7 +5,7 @@ import com.applexis.utils.StringUtils;
 import java.security.*;
 import java.security.spec.X509EncodedKeySpec;
 
-public class DSASing {
+public class DSASign {
 
     public static final String DSA_ALGORITHM = "DSA";
 
