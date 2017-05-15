@@ -18,14 +18,18 @@ public class StringUtils {
         return builder.toString();
     }
 
-    public static byte[] fromHexString(String hexString) {
+    public static byte[] fromHexString(String hexString) throws IllegalArgumentException {
         int len = hexString.length();
-        byte[] data = new byte[len / 2];
-        for (int i = 0; i < len; i += 2) {
-            data[i / 2] = (byte) ((Character.digit(hexString.charAt(i), 16) << 4)
-                    + Character.digit(hexString.charAt(i+1), 16));
+        if (len % 2 == 0) {
+            byte[] data = new byte[len / 2];
+            for (int i = 0; i < len; i += 2) {
+                data[i / 2] = (byte) ((Character.digit(hexString.charAt(i), 16) << 4)
+                        + Character.digit(hexString.charAt(i + 1), 16));
+            }
+            return data;
+        } else {
+            throw new IllegalArgumentException("Argument must be a hex-string!");
         }
-        return data;
     }
 
     public static String surroundQuotes(String str) {

@@ -2,6 +2,8 @@ import com.applexis.utils.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class StringUtilsTest {
 
     @Test
@@ -20,6 +22,11 @@ public class StringUtilsTest {
     @Test
     public void surroundTest() {
         Assert.assertEquals("\"123\"", StringUtils.surroundQuotes("123"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void notHexStringTest() {
+        System.out.print(Arrays.toString(StringUtils.fromHexString("false")));
     }
 
 }

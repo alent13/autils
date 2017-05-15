@@ -1,7 +1,9 @@
-package com.applexis.utils.crypto;
+package com.applexis.utils;
 
 import com.applexis.utils.StringUtils;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -75,6 +77,39 @@ public class HashHelper {
         }
 
         return StringUtils.bytesToHex(digest);
+    }
+
+    public static String getMD5String(byte[] data, String salt) {
+        byte[] digest = new byte[0];
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.reset();
+            messageDigest.update(salt.getBytes());
+            digest = messageDigest.digest(data);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
+        return StringUtils.bytesToHex(digest);
+    }
+
+    public static String getFileMD5Hash(File file) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.reset();
+            FileInputStream fileInputStream = new FileInputStream(file);
+            byte[] dataBuffer = new byte[(int) Math.min(file.length(), 4 * 1024 * 1024)];
+            int read;
+
+            while((read = fileInputStream.read(dataBuffer)) != -1) {
+                messageDigest.update(dataBuffer, 0, read);
+            }
+
+            return StringUtils.bytesToHex(messageDigest.digest());
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

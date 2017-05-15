@@ -39,7 +39,7 @@ public class AESCryptoTest {
 
     @Test(expected = InvalidParameterException.class)
     public void wrongKeyLengthExceptionTest() {
-        AESCrypto aes = new AESCrypto(193);
+        new AESCrypto(193);
     }
 
 }

@@ -1,7 +1,9 @@
 import com.applexis.utils.StringUtils;
-import com.applexis.utils.crypto.HashHelper;
+import com.applexis.utils.HashHelper;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.io.File;
 
 public class HashTest {
 

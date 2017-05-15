@@ -1,12 +1,10 @@
 package com.applexis.utils.crypto;
 
 import com.applexis.utils.StringUtils;
+import sun.rmi.server.InactiveGroupException;
 
 import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
+import java.security.*;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -40,7 +38,10 @@ public class AESCrypto {
      * Constructor with custom key size
      * @param keySize EAS key size, must be equal to 128, 192 or 256
      */
-    public AESCrypto(int keySize) {
+    public AESCrypto(int keySize) throws InvalidParameterException {
+        if (keySize != 128 && keySize != 192 && keySize != 256) {
+            throw new InvalidParameterException("Key size, must be equal to 128, 192 or 256");
+        }
         KEY_SIZE = keySize;
         generateKey();
     }
@@ -53,12 +54,16 @@ public class AESCrypto {
         this.key = key;
     }
 
+    public AESCrypto(byte[] keyBytes) {
+        key = new SecretKeySpec(keyBytes, AES_ALGORITHM);
+    }
+
     public AESCrypto generateKey() {
         try {
             KeyGenerator generator = KeyGenerator.getInstance(AES_ALGORITHM);
             generator.init(KEY_SIZE, new SecureRandom());
             key = generator.generateKey();
-        } catch (NoSuchAlgorithmException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return this;
@@ -81,7 +86,7 @@ public class AESCrypto {
             byte[] stringBytes = message.getBytes("UTF8");
             byte[] raw = cipher.doFinal(stringBytes);
             str = StringUtils.bytesToHex(raw);
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException | UnsupportedEncodingException | BadPaddingException | InvalidKeyException | IllegalBlockSizeException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return str;
@@ -95,36 +100,34 @@ public class AESCrypto {
             byte[] raw = StringUtils.fromHexString(encrypted);
             byte[] stringBytes = cipher.doFinal(raw);
             str = new String(stringBytes, "UTF8");
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException | UnsupportedEncodingException | BadPaddingException | IllegalBlockSizeException | InvalidKeyException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return str;
     }
 
-    public String encrypt(byte[] bytes) {
-        String str = null;
+    public byte[] encrypt(byte[] bytes) {
+        byte[] res = null;
         try {
             Cipher cipher = Cipher.getInstance(AES_ALGORITHM);
             cipher.init(Cipher.ENCRYPT_MODE, key);
-            byte[] raw = cipher.doFinal(bytes);
-            str = StringUtils.bytesToHex(raw);
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException | BadPaddingException | InvalidKeyException | IllegalBlockSizeException e) {
+            res = cipher.doFinal(bytes);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return str;
+        return res;
     }
 
-    public String decrypt(byte[] encrypted) {
-        String str = null;
+    public byte[] decrypt(byte[] encrypted) {
+        byte[] res = null;
         try {
             Cipher cipher = Cipher.getInstance(AES_ALGORITHM);
             cipher.init(Cipher.DECRYPT_MODE, key);
-            byte[] stringBytes = cipher.doFinal(encrypted);
-            str = new String(stringBytes, "UTF8");
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException | UnsupportedEncodingException | BadPaddingException | IllegalBlockSizeException | InvalidKeyException e) {
+            res = cipher.doFinal(encrypted);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return str;
+        return res;
     }
 
     public Key getKey() {
